@@ -5,7 +5,7 @@ These are some of the problems i've encountered adapting the algorithm to a quan
 
     Sequentiality vs. Parallelism:
         Dijkstra relies on sequential updates of minimum distances, whereas quantum computing is naturally parallel.
-        To "adapt" the algorithm, we need to map the process to quantum operations, which requires creativity to maintain the spirit of the algorithm.
+        To "adapt" the algorithm, i needed to map the process to quantum operations.
 
     Mathematical Operations:
         Quantum computing works with unitary linear transformations and probabilistic measurements. Simulating comparisons, minimums and value updates requires specific translations.
@@ -18,15 +18,13 @@ These are some of the problems i've encountered adapting the algorithm to a quan
 
 Mathematical Considerations
 
-    Superposition States:
-        For nn nodes, the initial state would be ∣ψ⟩=1n∑i=0n−1∣i⟩∣ψ⟩=n
+Superposition States:
+    For nn nodes, the initial state would be ∣ψ⟩=1n∑i=0n−1∣i⟩∣ψ⟩=n
 
-    ​1​∑i=0n−1​∣i⟩, where each node is represented by a quantum state.
+​1​∑i=0n−1​∣i⟩, where each node is represented by a quantum state.
 
 Weights as Rotation:
-
-    We use rotations Ry(θ)Ry​(θ), where θ=2π⋅normalized weightθ=2π⋅normalized weight, to represent edge weights.
+ I used rotations Ry(θ)Ry​(θ), where θ=2π⋅normalized weightθ=2π⋅normalized weight, to represent edge weights.
 
 Search for the Minimum:
-
-    After measurement, we analyze the results to find the state with the lowest weight, interpreted as the shortest path.
+    After measurement, the code analyzed the results to find the state with the lowest weight, interpreted as the shortest path.
