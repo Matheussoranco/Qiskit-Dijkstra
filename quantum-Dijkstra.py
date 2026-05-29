@@ -1,4 +1,5 @@
-from qiskit import QuantumCircuit, Aer, execute
+from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
 import numpy as np
 
 def dijkstra_qiskit(graph, start, end):
@@ -15,8 +16,8 @@ def dijkstra_qiskit(graph, start, end):
     
     qc.measure_all()
     
-    simulator = Aer.get_backend('qasm_simulator')
-    result = execute(qc, simulator, shots=1024).result()
+    simulator = AerSimulator()
+    result = simulator.run(transpile(qc, simulator), shots=1024).result()
     counts = result.get_counts()
     
     best_path = min(counts, key=lambda x: sum([int(bit) for bit in x]))
